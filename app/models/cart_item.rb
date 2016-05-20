@@ -9,7 +9,9 @@ class CartItem
   def increment
     @quantity += 1
   end
+
+  def product
+    Product.find_by(id: product_id)
+  end
 end
 
-# CartItem.new(product_id)
-# CartItem.new(product_id, 10)

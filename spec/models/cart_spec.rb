@@ -29,7 +29,13 @@ RSpec.describe Cart, type: :model do
     end
 
     it "商品可以放到購物車裡，也可以再拿出來" do
+      p1 = FactoryGirl.create(:product, :ruby_book)
+      cart = Cart.new
+      cart.add_item(p1.id)
 
+      expect(cart.items.first.product_id).to be p1.id
+      expect(cart.items.first.product).to be_a Product
+      expect(cart.items.first.product.title).to eq p1.title
     end
 
   #* 可以計算整個購物車的總消費金額
