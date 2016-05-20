@@ -38,7 +38,16 @@ RSpec.describe Cart, type: :model do
       expect(cart.items.first.product.title).to eq p1.title
     end
 
-  #* 可以計算整個購物車的總消費金額
+    it "可以計算整個購物車的總消費金額" do
+      p1 = FactoryGirl.create(:product, :ruby_book)  # 100 元
+      p2 = FactoryGirl.create(:product, :php_book)   # 1000 元
+      cart = Cart.new
+
+      5.times { cart.add_item(p1.id) }
+      3.times { cart.add_item(p2.id) }
+
+      expect(cart.total_price).to be 3500
+    end
   end
 
   describe "購物車進階功能" do
