@@ -12,8 +12,17 @@ RSpec.describe Cart, type: :model do
     end
 
     it "如果加了相同種類的商品，CartItem 並不會增加，但數量會改變。" do
+      cart = Cart.new
+      5.times { cart.add_item(1) }
+      10.times { cart.add_item(3) }
+      3.times { cart.add_item(2) }
+      5.times { cart.add_item(2) }
 
+      expect(cart.items.count).to be 3
+      expect(cart.items.first.quantity).to be 5
+      expect(cart.items.last.quantity).to be 8
     end
+
   #* 商品可以放到購物車裡，也可以再拿出來
   #* 可以計算整個購物車的總消費金額
   end
