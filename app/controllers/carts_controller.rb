@@ -1,13 +1,13 @@
 class CartsController < ApplicationController
+  before_action :initialize_cart
 
   def add
     # 1. 找到商品
     product = Product.find_by(id: params[:id])
     if product
       # 2. 加到購物車
-      cart = Cart.build_from_hash(session["my_cart"])
-      cart.add_item(product.id)
-      session["my_cart"] = cart.serialize
+      @cart.add_item(product.id)
+      session[Settings.Cart.name] = @cart.serialize
 
       # 3. 轉回商品頁!
       redirect_to products_path, notice: '成功加入購物車'
