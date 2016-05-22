@@ -8,4 +8,11 @@ Rails.application.routes.draw do
   namespace :admin, path: Settings.admin_path do
     resources :products
   end
+
+  resource :cart, only:[:show, :destroy] do
+    member do
+      post :add, path: 'add/:id'
+      get :checkout
+    end
+  end
 end

@@ -11,7 +11,8 @@
         <p><%= product.description %></p>
         <p>
         <%= link_to '檢視商品', product, class:'btn btn-primary btn-lg' %>
-        <a href="#" class="btn btn-danger btn-lg" role="button">放入購物車</a></p>
+        <%= link_to '放入購物車', add_cart_path(product.id), method: "post", class:"btn btn-danger btn-lg" %>
+        </p>
       </div>
     </div>
   </div>
