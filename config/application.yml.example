@@ -1,5 +1,8 @@
 defaults: &defaults
   admin_path: 'admin'
+  Facebook:
+    AppID: your_app_id
+    AppSecret: your_app_secret
 
 development:
   <<: *defaults
@@ -9,4 +12,4 @@ test:
 
 production:
   <<: *defaults
-  admin_path: 'you_can_not_pass'
+  admin_path: 'your-admin-path'
