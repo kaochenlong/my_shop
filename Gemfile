@@ -10,10 +10,11 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
-gem 'simple_form'    # 簡單表單
-gem 'settingslogic'  # 設定檔
-gem 'devise'         # 會員系統
+gem 'simple_form'       # 簡單表單
+gem 'settingslogic'     # 設定檔
+gem 'devise'            # 會員系統
 gem 'omniauth-facebook' # FB 會員
+gem 'aasm'              # 狀態機
 
 group :development, :test do
   gem 'byebug'
