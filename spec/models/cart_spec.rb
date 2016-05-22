@@ -86,6 +86,21 @@ RSpec.describe Cart, type: :model do
     end
 
     it "也可以把 Hash 還原成購物車的內容" do
+      p1 = FactoryGirl.create(:product, :ruby_book)
+      p2 = FactoryGirl.create(:product, :php_book)
+      hash = {
+        "cart" => {
+          "items" => [
+            {"product_id" => p1.id, "quantity" => 5},
+            {"product_id" => p2.id, "quantity" => 3}
+          ]
+        }
+      }
+
+      cart = Cart.build_from_hash(hash)
+      expect(cart).to be_a Cart
+      expect(cart.items.first.product_id).to be p1.id
+      expect(cart.items.last.quantity).to be 3
     end
   end
 end
