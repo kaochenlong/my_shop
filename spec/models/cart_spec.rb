@@ -65,7 +65,27 @@ RSpec.describe Cart, type: :model do
   end
 
   describe "購物車進階功能" do
-    #* 可以將購物車內容轉換成 Hash
-    #* 也可以把 Hash 還原成購物車的內容
+    it "可以將購物車內容轉換成 Hash" do
+      p1 = FactoryGirl.create(:product, :ruby_book)
+      p2 = FactoryGirl.create(:product, :php_book)
+      cart = Cart.new
+
+      5.times { cart.add_item(p1.id) }
+      3.times { cart.add_item(p2.id) }
+
+      result = {
+        "cart" => {
+          "items" => [
+            {"product_id" => p1.id, "quantity" => 5},
+            {"product_id" => p2.id, "quantity" => 3}
+          ]
+        }
+      }
+
+      expect(cart.serialize).to eq result
+    end
+
+    it "也可以把 Hash 還原成購物車的內容" do
+    end
   end
 end
