@@ -1,0 +1,23 @@
+<h1>跳樓大拍賣</h1>
+
+<div class="row">
+  <% @products.each do |product| %>
+  <!-- start -->
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="http://fakeimg.pl/350x200/?text=<%= product.title %>" alt="...">
+      <div class="caption">
+        <h3><%= product.title %>(售價：<%= product.price %>)</h3>
+        <p><%= product.description %></p>
+        <p>
+        <%= link_to '檢視商品', product, class:'btn btn-primary btn-lg' %>
+        <a href="#" class="btn btn-danger btn-lg" role="button">放入購物車</a></p>
+      </div>
+    </div>
+  </div>
+  <!-- end -->
+  <% end %>
+</div>
+
+
+
