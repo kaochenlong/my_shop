@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   root "products#index"
 
   resources :products, only: [:index, :show]
+  resources :orders, only: [:index, :create]
 
   namespace :admin, path: Settings.admin_path do
     resources :products
+    resources :orders
   end
 
   resource :cart, only:[:show, :destroy] do

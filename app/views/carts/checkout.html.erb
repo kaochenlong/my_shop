@@ -1,0 +1,13 @@
+<h1>結帳</h1>
+
+<%= render "cart" %>
+
+<%= simple_form_for(@order) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :tel %>
+  <%= f.input :email %>
+  <%= f.input :address %>
+
+  <%= f.submit %>
+<% end %>
+
