@@ -46,6 +46,8 @@ GEM
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    braintree (2.40.0)
+      builder (>= 2.0.0)
     builder (3.2.2)
     byebug (9.0.3)
     coffee-rails (4.1.1)
@@ -213,6 +215,7 @@ PLATFORMS
 DEPENDENCIES
   aasm
   bootstrap-sass
+  braintree
   byebug
   coffee-rails (~> 4.1.0)
   devise

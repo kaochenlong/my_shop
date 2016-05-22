@@ -10,8 +10,18 @@ class OrdersController < ApplicationController
 
     if @order.save
       # 2. 刷卡
+      nonce = params[:payment_method_nonce]
+      result = Braintree::Transaction.sale(
+        :amount => @cart.total_price,
+        :payment_method_nonce => nonce,
+        :options => {
+          :submit_for_settlement => true
+        }
+      )
+
       # 2.5 清空 Cart
       session[Settings.Cart.name] = nil
+
       # 3. 回商品列表
       redirect_to products_path, notice: "感謝大爺!"
     else

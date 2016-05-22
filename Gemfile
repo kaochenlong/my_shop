@@ -15,6 +15,7 @@ gem 'settingslogic'     # 設定檔
 gem 'devise'            # 會員系統
 gem 'omniauth-facebook' # FB 會員
 gem 'aasm'              # 狀態機
+gem 'braintree'         # Paypal 刷卡機
 
 group :development, :test do
   gem 'byebug'

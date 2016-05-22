@@ -3,6 +3,10 @@ defaults: &defaults
   Facebook:
     AppID: your_app_id
     AppSecret: your_app_secret
+  Braintree:
+    MerchantID: your_merchant_id
+    PublicKey: your_public_key
+    PrivateKey: your_private_key
 
 development:
   <<: *defaults

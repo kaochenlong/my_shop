@@ -8,6 +8,18 @@
   <%= f.input :email %>
   <%= f.input :address %>
 
+  <hr />
+  <div id="payment-form"></div>
+
+  <hr />
   <%= f.submit %>
 <% end %>
+
+<script src="https://js.braintreegateway.com/js/braintree-2.24.1.min.js"></script>
+<script>
+var clientToken = "<%= Braintree::ClientToken.generate %>";
+braintree.setup(clientToken, "dropin", {
+  container: "payment-form"
+});
+</script>
 
