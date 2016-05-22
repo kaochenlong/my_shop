@@ -10,7 +10,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
-gem 'simple_form'
+gem 'simple_form'    # 簡單表單
+gem 'settingslogic'  # 設定檔
+gem 'devise'         # 會員系統
 
 group :development, :test do
   gem 'byebug'

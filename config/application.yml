@@ -1,0 +1,12 @@
+defaults: &defaults
+  admin_path: 'admin'
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+  admin_path: 'you_can_not_pass'
