@@ -48,6 +48,20 @@ RSpec.describe Cart, type: :model do
 
       expect(cart.total_price).to be 3500
     end
+
+    it "聖誕節全館 9 折" do
+      p1 = FactoryGirl.create(:product, :ruby_book)  # 100 元
+      p2 = FactoryGirl.create(:product, :php_book)   # 1000 元
+      cart = Cart.new
+
+      5.times { cart.add_item(p1.id) }
+      3.times { cart.add_item(p2.id) }
+
+      Timecop.freeze(Time.local(2008, 12, 25, 12, 0, 0)) do
+        expect(cart.total_price).to be 3500 * 0.9
+      end
+    end
+
   end
 
   describe "購物車進階功能" do
